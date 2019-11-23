@@ -78,10 +78,24 @@
         </t>
         </section>
 
+        <section title="Export Model Design and Structure">
+            <t>
+                This section should explain why the specific elements have been chosen
+                for export, and why the structure of roas block + prefix and 
+                AS content is the most useful or widely used.
+            </t>
+        </section>
+
+                <section title="RPKI VRP Export Module">
+            <t>
+                The YANG module itself goes here.
+            </t>
+        </section>
+
 
         <section title="Security Considerations">
             <t>
-                Integrity of data file is important...
+                A few words about not spooking parsers would fit here.
             </t>
         </section>
 
