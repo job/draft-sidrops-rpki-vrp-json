@@ -1,0 +1,15 @@
+{
+  "roas": [
+    { "asn": "AS12389", "prefix": "93.178.120.0/22", "maxLength": 22, "ta": "ripe" },
+    { "asn": "AS264836", "prefix": "170.82.114.0/24", "maxLength": 24, "ta": "lacnic" },
+    { "asn": "AS4787", "prefix": "103.109.188.0/22", "maxLength": 22, "ta": "apnic" },
+    { "asn": "AS64043", "prefix": "103.197.251.0/24", "maxLength": 24, "ta": "apnic" },
+    { "asn": "AS32491", "prefix": "2604:4000:4000::/48", "maxLength": 48, "ta": "arin" },
+    { "asn": "AS204063", "prefix": "185.90.161.0/24", "maxLength": 32, "ta": "ripe" },
+    { "asn": "AS24440", "prefix": "61.5.152.0/22", "maxLength": 22, "ta": "apnic" },
+    { "asn": "AS29182", "prefix": "212.109.216.0/23", "maxLength": 23, "ta": "ripe" },
+    { "asn": "AS47883", "prefix": "5.104.1.0/24", "maxLength": 24, "ta": "ripe" },
+    { "asn": "AS50597", "prefix": "109.205.114.0/23", "maxLength": 23, "ta": "ripe" },
+    { "asn": "AS198961", "prefix": "37.221.178.0/24", "maxLength": 24, "ta": "ripe" }
+  ]
+}

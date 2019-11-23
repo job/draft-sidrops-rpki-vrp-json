@@ -1,0 +1,33 @@
+module roas {
+
+  import ietf-yang-types { prefix yang; }
+
+  typedef asn {
+    type string;
+    description
+      "The Autonomous System Number";
+  }
+
+  container roas {
+    config true;
+
+    list roas {
+      key name;
+      leaf name { type string; }
+      leaf birthday { type yang:date-and-time; mandatory true; }
+    }
+
+    list team {
+      key name;
+      leaf name { type string; }
+      list player {
+        key "name season";
+        unique number;
+        leaf name { type leafref { path "/sports/person/name"; }  }
+        leaf season { type season; }
+        leaf number { type uint16; mandatory true; }
+        leaf scores { type uint16; default 0; }
+      }
+    }
+  }
+}
