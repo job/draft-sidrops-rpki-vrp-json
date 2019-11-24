@@ -67,15 +67,35 @@
 <middle>
     <section title="Introduction">
         <t>
-            It can be really annoying if you have no idea how the JSON data is structurered..
-            there fore...
+                This document defines a base YANG [RFC6020] data module for export of
+                RPKI [RFC6480] Validated ROA Prefix (VRP) information. Such export 
+                functionality has emerged in several implementations of relaying party (RP)
+                software, but was not previously standardized, resulting in loose
+                coordination between implementers.
+                
+                This module establishes a simple and consistent interface for information
+                export by RPs drawing from best practices observed in existing implementations.
+        </t>
+        </section>
+
+        <section title="Export Model Design and Structure">
+            <t>
+                This section should explain why the specific elements have been chosen
+                for export, and why the structure of roas block + prefix and 
+                AS content is the most useful or widely used.
+            </t>
+        </section>
+
+                <section title="RPKI VRP Export Module">
+            <t>
+                The YANG module itself goes here.
             </t>
         </section>
 
 
         <section title="Security Considerations">
             <t>
-                Integrity of data file is important...
+                A few words about not spooking parsers would fit here.
             </t>
         </section>
 
