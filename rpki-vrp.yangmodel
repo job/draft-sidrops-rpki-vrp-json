@@ -1,7 +1,10 @@
 module rpki-vrp {
-
-  import ietf-yang-types {
-    prefix yang;
+  
+  namespace "urn:ietf:params:xml:ns:yang:rpki-vrp";
+  
+  prefix rpki-vrp;
+  import "ietf-inet-types" {
+    prefix inet;
   }
 
   typedef asn {
@@ -50,7 +53,7 @@ module rpki-vrp {
         mandatory true;
       }
       leaf prefix {
-        type yang:ip-prefix;
+        type inet:ip-prefix;
         mandatory true;
       }
       leaf maxLength {
@@ -61,7 +64,7 @@ module rpki-vrp {
         type ta;
         mandatory true;
       }
-      must 'number(substring-after(prefix,/)) >= number(maxLength) ' {
+      must "number(substring-after(prefix,'/')) >= number(maxLength)" {
         error-message "Max prefix Length is larger then prefix";
       }
     }
