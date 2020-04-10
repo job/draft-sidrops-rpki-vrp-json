@@ -1,5 +1,5 @@
 
-BASENAME=draft-nlnog-sidrops-rpki-vrp-yang
+BASENAME=draft-spaghetti-sidrops-rpki-vrp-yang
 EXT=.xml
 VERSION=00
 SOURCENAME=${BASENAME}${EXT}
