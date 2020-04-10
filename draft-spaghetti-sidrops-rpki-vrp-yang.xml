@@ -104,13 +104,7 @@ module rpki-vrp {
   }
 
   typedef ta {
-    type enumeration {
-      enum apic;
-      enum arin;
-      enum ripe;
-      enum lacnic;
-      enum afrinic;
-    }
+    type string
   }
 
   typedef ip-mask {
