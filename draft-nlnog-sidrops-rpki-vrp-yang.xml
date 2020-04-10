@@ -22,7 +22,7 @@
 
 <rfc category="std"
     ipr="trust200902"
-    docName="draft-nlnog-sidrops-rpki-vrp-yang-00"
+    docName="draft-spaghetti-sidrops-rpki-vrp-yang-00"
     submissionType="IETF">
 
 <front>
@@ -55,7 +55,8 @@
 
     <abstract>
         <t>
-            This document describes a YANG model for RPKI VRP data.
+            This document describes a YANG model for a commonly used datastructure for RPKI Validated ROA Payload data.
+            This specific datastructure is commonly used in the transport between RPKI Cache Validators and BGP routers.
         </t>
     </abstract>
     <note title="Requirements Language">
@@ -66,15 +67,10 @@
 </front>
 <middle>
     <section title="Introduction">
-        <t>
-                This document defines a base YANG [RFC6020] data module for export of
-                RPKI [RFC6480] Validated ROA Prefix (VRP) information. Such export 
-                functionality has emerged in several implementations of relaying party (RP)
-                software, but was not previously standardized, resulting in loose
-                coordination between implementers.
-                
-                This module establishes a simple and consistent interface for information
-                export by RPs drawing from best practices observed in existing implementations.
+            <t>
+                This document defines a base <xref target="RFC6020">YANG</xref> data module to structure <xref target="RFC6480">RPKI</xref>, <a href="RFC6811">Validated ROA Prefix</xref> (VRP) information.
+                Such export functionality has emerged in several implementations of relaying party (RP) software, but was not previously standardized, resulting in loose coordination between implementers.
+                This module establishes a simple and consistent interface for information export by RPs drawing from best practices observed in existing implementations.
         </t>
         </section>
 
@@ -107,30 +103,7 @@
 
         <section title="Acknowledgments">
             <t>
-                The authors would like to thank
-                ....
-                for their support, insightful review, and comments.
-            </t>
-        </section>
-
-        <section title="Implementation status - RFC EDITOR: REMOVE BEFORE PUBLICATION">
-            <t>
-                This section records the status of known implementations of the
-                protocol defined by this specification at the time of posting of
-                this Internet-Draft, and is based on a proposal described in
-                RFC7942. The description of implementations in this
-                section is intended to assist the IETF in its decision processes in
-                progressing drafts to RFCs.  Please note that the listing of any
-                individual implementation here does not imply endorsement by the
-                IETF. Furthermore, no effort has been spent to verify the
-                information presented here that was supplied by IETF contributors.
-                This is not intended as, and must not be construed to be, a catalog
-                of available implementations or their features. Readers are advised
-                to note that other implementations may exist.
-            </t>
-            <t>
-                The below table provides an overview (as of the moment of writing) of which vendors have produced implementation of inbound or outbound maximum prefix limits.
-                Each table cell shows the applicable configuration keywords if the vendor implemented the feature.
+                The authors would like to thank Yannis Gonianakis and Louis Poinsignon for their contributions to this format.
             </t>
         </section>
 
