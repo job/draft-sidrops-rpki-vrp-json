@@ -1,4 +1,4 @@
-YANG Model for RPKI VRPs Draft IETF Draft Repository
+JSON Model for RPKI VRPs Draft IETF Draft Repository
 ====================================================
 
 Authoring Conventions
