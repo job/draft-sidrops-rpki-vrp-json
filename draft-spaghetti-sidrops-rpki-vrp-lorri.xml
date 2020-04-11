@@ -97,17 +97,48 @@
         </section>
         <section title="LORRI File Overview">
             <t>
+                A LORRI consists of a single JSON object containing the following members:
+                <list style="symbols">
+                    <t>A "lorriVersion" member that MUST be set to 1, encoded as a number.</t>
+                    <t>A "roas" member whose value is a list of objects (<xref target="roa_object" />).</t>
+                </list>
+                Additionnaly, a LORRI file MAY contain:
+                <list style="symbols">
+                    <t>A "metadata" member whose value is an object (<xref target="metadata_object" />).</t>
+                </list>
+            </t>
+            <t>
                 The following JSON structure with JSON members represents a LORRI file that has no VRPs:
             </t>
             <figure>
                 <artwork><![CDATA[
 {
-	"lorriVersion": 1,
-	"metadata": {},
+    "lorriVersion": 1,
+    "metadata": {},
     "roas": []
 }
 ]]></artwork>
         </figure>
+
+
+        <section title="ROA" anchor="roa_object">
+            <t>
+                A ROA object MUST have following members:
+                <list style="symbols">
+                    <t>A "prefix" member, whose value is a string representing either and IPv4 prefix or an IPv6 prefix (rfc5952).</t>
+                    <t>An "asn" member, whose value is a number.</t>
+                </list>
+                A ROA object MAY contain the following:
+                <list style="symboles">
+                    <t>A "maxLength" member, whose value is a number equal or greater to the value of the IP mask length of the "prefix" field.</t>
+                </list>
+                In case the "maxLength" member is absent or invalid, the value of the IP mask length of the "prefix" field must be used to interpret the ROA object.
+            </t>
+        </section>
+
+        <section title="Metadata" anchor="metadata_object">
+
+        </section>
     </section>
 
     </section>
@@ -146,7 +177,7 @@
 
     <section title="Security Considerations">
         <t>
-            The mechanisms described in this document provide a readable format that is meant to be produced by a RPKI Validator and a RPKI cache server.
+            The mechanisms described in this document provide a readable format that is meant to be produced by a RPKI Validator and a RTR server.
             The scope of action of such mechanisms are limited to the consumers of the LORRI file and do not influence other operators to interpret RPKI data.
             The format embeds simple cryptographic checks to ensure the data provided has not been tampered with.
             The operator is responsible for ensuring reliable distribution and verification of a LORRI file.
