@@ -1,5 +1,5 @@
 
-BASENAME=draft-spaghetti-sidrops-rpki-vrp-json
+BASENAME=draft-spaghetti-sidrops-rpki-vrp-lorri
 EXT=.xml
 VERSION=00
 SOURCENAME=${BASENAME}${EXT}

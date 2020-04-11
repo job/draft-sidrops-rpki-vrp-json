@@ -1,5 +1,5 @@
-JSON format for RPKI VRPs Draft IETF Draft Repository
-=====================================================
+Listing RPKI ROAs in JSON format (LORRI)
+========================================
 
 Authoring Conventions
 ---------------------
