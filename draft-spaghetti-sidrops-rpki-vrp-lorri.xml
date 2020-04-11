@@ -179,13 +179,13 @@
     {
       "prefix": "2001:67c:208c::/48"
       "maxLength": 48,
-      "asn": "AS15562",
+      "asn": 15562,
       "ta": "ripe"
     },
     {
       "prefix": "41.76.40.0/21",
       "maxLength": 24,
-      "asn": "AS30999",
+      "asn": 30999,
       "ta": "AFRINIC"
     }]
 }
