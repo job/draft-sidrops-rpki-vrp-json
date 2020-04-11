@@ -77,11 +77,35 @@
 
     <section title="Use of LORRI">
         <t>
-            
-            This section should explain why the specific elements have been chosen
-            for export, and why the structure of roas block + prefix and 
-            AS content is the most useful or widely used.
+
+        <t>
+            LORRI files are used to distribute cryptographically validated prefix origin data from trusted caches to RPKI-to-Router servers for dissemination to routers, directly to routers, or for archival purposes.
         </t>
+        <figure>
+            <artwork><![CDATA[
+        +-----------+
+  ......|           |............................
+  :     | Validator |                           :
+  :     |           +--------->--------+        :
+  :     +--+------+-+                  |        :
+  :        |      |      LORRI         |        :
+  :        V      V      files         V        :
+  :  +-----+--+  +--------+       +----+-----+  :
+  :  |  RTR   |  |  RTR   |       |          |  :
+  :..| server |..| server |.......| Archives |..:
+     +--------+  +--------+       |          |
+      |  |  |     |  |  |         +----------+
+ .. RPKI to Router protocol ..
+      |  |  |     |  |  |
+      V  V  V     V  V  V
++--+--+--+ +--+--+--+ +--+--+--+
+|  BGP   | |  BGP   | |  BGP   |
+| router | | router | | router |
++--------+ +--------+ +--------+
+]]></artwork>
+</figure>
+
+
         <t>
             
         </t>
