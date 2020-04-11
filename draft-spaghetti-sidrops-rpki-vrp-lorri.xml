@@ -81,6 +81,9 @@
             for export, and why the structure of roas block + prefix and 
             AS content is the most useful or widely used.
         </t>
+        <t>
+            
+        </t>
     </section>
 
     <section title="LORRI Files and mechanisms">
@@ -143,7 +146,10 @@
 
     <section title="Security Considerations">
         <t>
-            A few words about not spooking parsers would fit here.
+            The mechanisms described in this document provide a readable format that is meant to be produced by a RPKI Validator and a RPKI cache server.
+            The scope of action of such mechanisms are limited to the consumers of the LORRI file and do not influence other operators to interpret RPKI data.
+            The format embeds simple cryptographic checks to ensure the data provided has not been tampered with.
+            The operator is responsible for ensuring reliable distribution and verification of a LORRI file.
         </t>
     </section>
 
