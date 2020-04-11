@@ -56,8 +56,8 @@
 
     <abstract>
         <t>
-            This document describes a commonly used JSON datastructure for RPKI Validated ROA Payload data.
-            This specific datastructure is commonly used in the transport pipeline between RPKI Cache Validators and BGP routers.
+            This document describes a JSON structure for listing RPKI Validated ROA Payload data.
+            This specific structure is commonly used in the transport pipeline between RPKI Cache Validators and BGP routers, and for archival research.
         </t>
     </abstract>
     <note title="Requirements Language">
@@ -69,14 +69,15 @@
 <middle>
     <section title="Introduction">
         <t>
-            This document defines a base <xref target="RFC8259">JSON</xref> data structure for <xref target="RFC6480">RPKI</xref>, <xref target="RFC6811">Validated ROA Prefix</xref> (VRP) information.
-            Such export functionality has emerged in several implementations of relaying party (RP) software, but was not previously standardized, resulting in loose coordination between implementers.
-            This module establishes a simple and consistent interface for information export by RPs drawing from best practices observed in existing implementations.
+            This document defines a base <xref target="RFC8259">JSON</xref> structure for <xref target="RFC6480">RPKI</xref>, <xref target="RFC6811">Validated ROA Prefix</xref> (VRP) information.
+            Functionality to export VRPs in JSON format has emerged in several implementations of relaying party (RP) software, but was not previously standardized, resulting in loose coordination between implementers.
+            This specification establishes a simple and consistent interface for information export by RPs drawing from best practices observed in existing implementations.
         </t>
     </section>
 
-    <section title="Export Model Design and Structure">
+    <section title="Use of LORRI">
         <t>
+            
             This section should explain why the specific elements have been chosen
             for export, and why the structure of roas block + prefix and 
             AS content is the most useful or widely used.
@@ -91,8 +92,8 @@
             <t>
                 LORRI files are specified in <xref target="RFC8259">JSON</xref> format.
                 JSON members that are not defined here MUST NOT be used in LORRI files.
-                An RTR server MUST consider any deviations from the specifications to be errors.
-                Future additions to the specifications in this document MUST use an incremented value for the "LorriVersion" member.
+                A LORRI file parser MUST consider any deviations from the specifications to be errors.
+                Future additions to the specifications in this document MUST use an incremented value for the "lorriVersion" member.
             </t>
         </section>
         <section title="LORRI File Overview">
@@ -108,7 +109,7 @@
                 </list>
             </t>
             <t>
-                The following JSON structure with JSON members represents a LORRI file that has no VRPs:
+                The following JSON structure with JSON members represents a valid LORRI file without any VRPs:
             </t>
             <figure>
                 <artwork><![CDATA[
@@ -125,12 +126,12 @@
             <t>
                 A ROA object MUST have following members:
                 <list style="symbols">
-                    <t>A "prefix" member, whose value is a string representing either and IPv4 prefix or an IPv6 prefix (rfc5952).</t>
-                    <t>An "asn" member, whose value is a number.</t>
+                    <t>A "prefix" member, whose value is a string representing either an IPv4 prefix or an IPv6 prefix.</t>
+                    <t>An "asn" member, whose value is encoded as a number.</t>
                 </list>
                 A ROA object MAY contain the following:
                 <list style="symboles">
-                    <t>A "maxLength" member, whose value is a number equal or greater to the value of the IP mask length of the "prefix" field.</t>
+                    <t>A "maxLength" member, whose value is a number equal or greater to the value of the IP mask length of the "prefix" member.</t>
                 </list>
                 In case the "maxLength" member is absent or invalid, the value of the IP mask length of the "prefix" field must be used to interpret the ROA object.
             </t>
