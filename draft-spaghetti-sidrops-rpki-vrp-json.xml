@@ -22,7 +22,7 @@
 
 <rfc category="std"
     ipr="trust200902"
-    docName="draft-spaghetti-sidrops-rpki-vrp-yang-00"
+    docName="draft-spaghetti-sidrops-rpki-vrp-json-00"
     submissionType="IETF">
 
 <front>
@@ -51,7 +51,7 @@
 
     <keyword>RPKI</keyword>
     <keyword>VRP</keyword>
-    <keyword>YANG</keyword>
+    <keyword>JSON</keyword>
 
     <abstract>
         <t>
@@ -85,74 +85,29 @@
         <section title="RPKI VRP Export Module">
             <figure>
                 <artwork><![CDATA[
-<CODE BEGINS> file "rpki-vrps.yang"
-module rpki-vrp {
-  
-  namespace "urn:ietf:params:xml:ns:yang:rpki-vrp";
-  
-  prefix rpki-vrp;
-  import "ietf-inet-types" {
-    prefix inet;
-  }
-
-  typedef asn {
-    type string {
-      pattern 'AS(0|[1-9][0-9]{0,8}|[1-3][0-9]{1,9}|4([0-1][0-9]{8}|2([0-8][0-9]{7}|9([0-3][0-9]{6}|4([0-8][0-9]{5}|9([0-5][0-9]{4}|6([0-6][0-9]{3}|7([0-1][0-9]{2}|2([0-8][0-9]|9[0-5])))))))))';
+{
+  "metadata": {
+    "counts": 139386,
+    "generated": 1586554312,
+    "valid": 1586557912,
+    "identifier": "rpkivalidator-1.ntt.net",
+    "signature": "3046022100981f31ae1bdd2011d30ca2c4bb2905eebd1590509a770ab9dd592c9623fc1295022100de5698026ac20d3ee0d02ab0f2e7e865ee4923d294402dc6a7981c4c8bb053c0",
+    "signatureDate": "304602210090b43d33a186d94cddc08b2e7fec4fde26adfff25c53deffb68f708d3fb5a4e30221008c70602c72f996513a3246bc611a1878b8126aa87e9a1b441a317110448b91b5"
+  },
+  "roas": [
+    {
+      "prefix": "2c0f:ead0::/32",
+      "maxLength": 32,
+      "asn": "AS328568",
+      "ta": "Cloudflare - AFRINIC"
+    },
+    {
+      "prefix": "41.76.40.0/21",
+      "maxLength": 24,
+      "asn": "AS30999",
+      "ta": "AFRINIC"
     }
-    description
-      "The Autonomous System Number";
-  }
-
-  typedef ta {
-    type string
-  }
-
-  typedef ip-mask {
-    type union {
-      type ipv4-mask;
-      type ipv6-mask;
-    }
-  }
-
-  typedef ipv4-mask {
-    type uint8 {
-      range "0 .. 32";
-    }
-  }
-
-  typedef ipv6-mask {
-    type uint8 {
-      range "0 .. 128";
-    }
-  }
-
-  container roas {
-    config true;
-    list roas {
-      key "prefix asn";
-      leaf asn {
-        type asn;
-        mandatory true;
-      }
-      leaf prefix {
-        type inet:ip-prefix;
-        mandatory true;
-      }
-      leaf maxLength {
-        type ip-mask;
-        mandatory true;
-      }
-      leaf ta {
-        type ta;
-        mandatory true;
-      }
-      must "number(substring-after(prefix,'/')) >= number(maxLength)" {
-        error-message "Max prefix Length is larger then prefix";
-      }
-    }
-  }
 }
-<CODE ENDS>
         ]]></artwork>
         </figure>
         </section>
