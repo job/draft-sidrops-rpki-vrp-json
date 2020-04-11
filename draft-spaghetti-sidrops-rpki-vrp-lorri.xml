@@ -86,8 +86,8 @@
   :     | Validator |                           :
   :     |           +--------->--------+        :
   :     +--+------+-+                  |        :
-  :        |      |      LORRI         |        :
-  :        V      V      files         V        :
+  :        |      |         LORRI      |        :
+  :        V      V         files      V        :
   :  +-----+--+  +--------+       +----+-----+  :
   :  |  RTR   |  |  RTR   |       |          |  :
   :..| server |..| server |.......| Archives |..:
