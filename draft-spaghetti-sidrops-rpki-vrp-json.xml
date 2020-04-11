@@ -27,8 +27,8 @@
 
 <front>
 
-    <title abbrev="JSON RPKI VRPs">
-        JSON format for transporting RPKI VRPs
+    <title abbrev="LORRI">
+        Listing of RPKI ROAs in JSON format (LORRI)
     </title>
 
     <author fullname="Job Snijders" initials="J." surname="Snijders">
@@ -52,11 +52,12 @@
     <keyword>RPKI</keyword>
     <keyword>VRP</keyword>
     <keyword>JSON</keyword>
+    <keyword>LORRI</keyword>
 
     <abstract>
         <t>
-            This document describes a JSON format commonly used datastructure for RPKI Validated ROA Payload data.
-            This specific datastructure is commonly used in the transport between RPKI Cache Validators and BGP routers.
+            This document describes a commonly used JSON datastructure for RPKI Validated ROA Payload data.
+            This specific datastructure is commonly used in the transport pipeline between RPKI Cache Validators and BGP routers.
         </t>
     </abstract>
     <note title="Requirements Language">
@@ -68,23 +69,23 @@
 <middle>
     <section title="Introduction">
         <t>
-                This document defines a base <xref target="RFC8259">JSON</xref> data structure for <xref target="RFC6480">RPKI</xref>, <xref target="RFC6811">Validated ROA Prefix</xref> (VRP) information.
-                Such export functionality has emerged in several implementations of relaying party (RP) software, but was not previously standardized, resulting in loose coordination between implementers.
-                This module establishes a simple and consistent interface for information export by RPs drawing from best practices observed in existing implementations.
+            This document defines a base <xref target="RFC8259">JSON</xref> data structure for <xref target="RFC6480">RPKI</xref>, <xref target="RFC6811">Validated ROA Prefix</xref> (VRP) information.
+            Such export functionality has emerged in several implementations of relaying party (RP) software, but was not previously standardized, resulting in loose coordination between implementers.
+            This module establishes a simple and consistent interface for information export by RPs drawing from best practices observed in existing implementations.
         </t>
-        </section>
+    </section>
 
-        <section title="Export Model Design and Structure">
-            <t>
-                This section should explain why the specific elements have been chosen
-                for export, and why the structure of roas block + prefix and 
-                AS content is the most useful or widely used.
-            </t>
-        </section>
+    <section title="Export Model Design and Structure">
+        <t>
+            This section should explain why the specific elements have been chosen
+            for export, and why the structure of roas block + prefix and 
+            AS content is the most useful or widely used.
+        </t>
+    </section>
 
-        <section title="RPKI VRP Export Module">
-            <figure>
-                <artwork><![CDATA[
+    <section title="Example JSON object">
+        <figure>
+            <artwork><![CDATA[
 {
   "metadata": {
     "counts": 139386,
@@ -108,39 +109,39 @@
       "ta": "AFRINIC"
     }
 }
-        ]]></artwork>
+]]></artwork>
         </figure>
-        </section>
+    </section>
 
 
-        <section title="Security Considerations">
-            <t>
-                A few words about not spooking parsers would fit here.
-            </t>
-        </section>
+    <section title="Security Considerations">
+        <t>
+            A few words about not spooking parsers would fit here.
+        </t>
+    </section>
 
-        <section title="IANA Considerations">
-            <t>
-                None.
-            </t>
-        </section>
+    <section title="IANA Considerations">
+        <t>
+            None.
+        </t>
+    </section>
 
-        <section title="Acknowledgments">
-            <t>
-                The authors would like to thank Yannis Gonianakis and Louis Poinsignon for their contributions to the data model described in this document.
-                The authors are grateful for feedback from Kooistra and David Monosov.
-            </t>
-        </section>
+    <section title="Acknowledgments">
+        <t>
+            The authors would like to thank Yannis Gonianakis and Louis Poinsignon for their contributions to the data model described in this document.
+            The authors are grateful for feedback from Kooistra and David Monosov.
+        </t>
+    </section>
 
-    </middle>
-    <back>
-        <references title="Normative References">
-            <?rfc include="reference.RFC.2119"?>
-            <?rfc include="reference.RFC.6480"?>
-            <?rfc include="reference.RFC.6811"?>
-            <?rfc include="reference.RFC.8174"?>
-            <?rfc include="reference.RFC.8259"?>
-        </references>
+</middle>
+<back>
+    <references title="Normative References">
+        <?rfc include="reference.RFC.2119"?>
+        <?rfc include="reference.RFC.6480"?>
+        <?rfc include="reference.RFC.6811"?>
+        <?rfc include="reference.RFC.8174"?>
+        <?rfc include="reference.RFC.8259"?>
+    </references>
 <!--
         <references title="Informative References">
         </references>
