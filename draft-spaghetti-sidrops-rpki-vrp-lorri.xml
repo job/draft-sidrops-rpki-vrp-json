@@ -77,8 +77,6 @@
 
     <section title="Use of LORRI">
         <t>
-
-        <t>
             LORRI files are used to distribute cryptographically validated prefix origin data from trusted caches to RPKI-to-Router servers for dissemination to routers, directly to routers, or for archival purposes.
         </t>
         <figure>
@@ -105,10 +103,6 @@
 ]]></artwork>
 </figure>
 
-
-        <t>
-            
-        </t>
     </section>
 
     <section title="LORRI Files and mechanisms">
