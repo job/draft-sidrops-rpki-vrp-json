@@ -27,8 +27,8 @@
 
 <front>
 
-    <title abbrev="YANG Model for RPKI VRPs">
-        YANG Model for RPKI VRPs
+    <title abbrev="JSON RPKI VRPs">
+        JSON format for transporting RPKI VRPs
     </title>
 
     <author fullname="Job Snijders" initials="J." surname="Snijders">
@@ -55,7 +55,7 @@
 
     <abstract>
         <t>
-            This document describes a YANG model for a commonly used datastructure for RPKI Validated ROA Payload data.
+            This document describes a JSON format commonly used datastructure for RPKI Validated ROA Payload data.
             This specific datastructure is commonly used in the transport between RPKI Cache Validators and BGP routers.
         </t>
     </abstract>
@@ -68,7 +68,7 @@
 <middle>
     <section title="Introduction">
         <t>
-                This document defines a base <xref target="RFC6020">YANG</xref> data module to structure <xref target="RFC6480">RPKI</xref>, <xref target="RFC6811">Validated ROA Prefix</xref> (VRP) information.
+                This document defines a base <xref target="RFC8259">JSON</xref> data structure for <xref target="RFC6480">RPKI</xref>, <xref target="RFC6811">Validated ROA Prefix</xref> (VRP) information.
                 Such export functionality has emerged in several implementations of relaying party (RP) software, but was not previously standardized, resulting in loose coordination between implementers.
                 This module establishes a simple and consistent interface for information export by RPs drawing from best practices observed in existing implementations.
         </t>
@@ -181,10 +181,10 @@ module rpki-vrp {
     <back>
         <references title="Normative References">
             <?rfc include="reference.RFC.2119"?>
-            <?rfc include="reference.RFC.6020"?>
             <?rfc include="reference.RFC.6480"?>
             <?rfc include="reference.RFC.6811"?>
             <?rfc include="reference.RFC.8174"?>
+            <?rfc include="reference.RFC.8259"?>
         </references>
 <!--
         <references title="Informative References">
