@@ -1,0 +1,164 @@
+
+
+
+
+SIDROPS                                                      J. Snijders
+Internet-Draft                                                       NTT
+Intended status: Standards Track                          April 11, 2020
+Expires: October 13, 2020
+
+
+                 JSON format for transporting RPKI VRPs
+                draft-spaghetti-sidrops-rpki-vrp-json-00
+
+Abstract
+
+   This document describes a JSON format commonly used datastructure for
+   RPKI Validated ROA Payload data.  This specific datastructure is
+   commonly used in the transport between RPKI Cache Validators and BGP
+   routers.
+
+Requirements Language
+
+   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+   "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
+   "OPTIONAL" in this document are to be interpreted as described in BCP
+   14 [RFC2119] [RFC8174] when, and only when, they appear in all
+   capitals, as shown here.
+
+Status of This Memo
+
+   This Internet-Draft is submitted in full conformance with the
+   provisions of BCP 78 and BCP 79.
+
+   Internet-Drafts are working documents of the Internet Engineering
+   Task Force (IETF).  Note that other groups may also distribute
+   working documents as Internet-Drafts.  The list of current Internet-
+   Drafts is at https://datatracker.ietf.org/drafts/current/.
+
+   Internet-Drafts are draft documents valid for a maximum of six months
+   and may be updated, replaced, or obsoleted by other documents at any
+   time.  It is inappropriate to use Internet-Drafts as reference
+   material or to cite them other than as "work in progress."
+
+   This Internet-Draft will expire on October 13, 2020.
+
+Copyright Notice
+
+   Copyright (c) 2020 IETF Trust and the persons identified as the
+   document authors.  All rights reserved.
+
+   This document is subject to BCP 78 and the IETF Trust's Legal
+   Provisions Relating to IETF Documents
+   (https://trustee.ietf.org/license-info) in effect on the date of
+   publication of this document.  Please review these documents
+   carefully, as they describe your rights and restrictions with respect
+   to this document.  Code Components extracted from this document must
+   include Simplified BSD License text as described in Section 4.e of
+   the Trust Legal Provisions and are provided without warranty as
+   described in the Simplified BSD License.
+
+Table of Contents
+
+   1.  Introduction
+   2.  Export Model Design and Structure
+   3.  RPKI VRP Export Module
+   4.  Security Considerations
+   5.  IANA Considerations
+   6.  Acknowledgments
+   7.  Normative References
+   Author's Address
+
+1.  Introduction
+
+   This document defines a base JSON [RFC8259] data structure for RPKI
+   [RFC6480], Validated ROA Prefix [RFC6811] (VRP) information.  Such
+   export functionality has emerged in several implementations of
+   relaying party (RP) software, but was not previously standardized,
+   resulting in loose coordination between implementers.  This module
+   establishes a simple and consistent interface for information export
+   by RPs drawing from best practices observed in existing
+   implementations.
+
+2.  Export Model Design and Structure
+
+   This section should explain why the specific elements have been
+   chosen for export, and why the structure of roas block + prefix and
+   AS content is the most useful or widely used.
+
+3.  RPKI VRP Export Module
+
+{
+  "metadata": {
+    "counts": 139386,
+    "generated": 1586554312,
+    "valid": 1586557912,
+    "identifier": "rpkivalidator-1.ntt.net",
+    "signature": "3046022100981f31ae1bdd2011d30ca2c4bb2905eebd1590509a770ab9dd592c9623fc1295022100de5698026ac20d3ee0d02ab0f2e7e865ee4923d294402dc6a7981c4c8bb053c0",
+    "signatureDate": "304602210090b43d33a186d94cddc08b2e7fec4fde26adfff25c53deffb68f708d3fb5a4e30221008c70602c72f996513a3246bc611a1878b8126aa87e9a1b441a317110448b91b5"
+  },
+  "roas": [
+    {
+      "prefix": "2c0f:ead0::/32",
+      "maxLength": 32,
+      "asn": "AS328568",
+      "ta": "Cloudflare - AFRINIC"
+    },
+    {
+      "prefix": "41.76.40.0/21",
+      "maxLength": 24,
+      "asn": "AS30999",
+      "ta": "AFRINIC"
+    }
+}
+
+4.  Security Considerations
+
+   A few words about not spooking parsers would fit here.
+
+5.  IANA Considerations
+
+   None.
+
+6.  Acknowledgments
+
+   The authors would like to thank Yannis Gonianakis and Louis
+   Poinsignon for their contributions to the data model described in
+   this document.  The authors are grateful for feedback from Kooistra
+   and David Monosov.
+
+7.  Normative References
+
+   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
+              Requirement Levels", BCP 14, RFC 2119,
+              DOI 10.17487/RFC2119, March 1997,
+              <https://www.rfc-editor.org/info/rfc2119>.
+
+   [RFC6480]  Lepinski, M. and S. Kent, "An Infrastructure to Support
+              Secure Internet Routing", RFC 6480, DOI 10.17487/RFC6480,
+              February 2012, <https://www.rfc-editor.org/info/rfc6480>.
+
+   [RFC6811]  Mohapatra, P., Scudder, J., Ward, D., Bush, R., and R.
+              Austein, "BGP Prefix Origin Validation", RFC 6811,
+              DOI 10.17487/RFC6811, January 2013,
+              <https://www.rfc-editor.org/info/rfc6811>.
+
+   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
+              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
+              May 2017, <https://www.rfc-editor.org/info/rfc8174>.
+
+   [RFC8259]  Bray, T., Ed., "The JavaScript Object Notation (JSON) Data
+              Interchange Format", STD 90, RFC 8259,
+              DOI 10.17487/RFC8259, December 2017,
+              <https://www.rfc-editor.org/info/rfc8259>.
+
+Author's Address
+
+   Job Snijders
+   NTT
+   Theodorus Majofskistraat 100
+   Amsterdam  1065 SZ
+   The Netherlands
+
+   Email: job@ntt.net
+
