@@ -28,7 +28,7 @@
 <front>
 
     <title abbrev="LORRI">
-        Listing of RPKI ROAs in JSON format (LORRI)
+        Listing of RPKI ROAs in I-JSON format (LORRI)
     </title>
 
     <author fullname="Job Snijders" initials="J." surname="Snijders">
@@ -56,7 +56,7 @@
 
     <abstract>
         <t>
-            This document describes a JSON structure for listing RPKI Validated ROA Payload data.
+            This document describes a I-JSON structure for listing RPKI Validated ROA Payload data.
             This specific structure is commonly used in the transport pipeline between RPKI Cache Validators and BGP routers, and for archival research.
         </t>
     </abstract>
@@ -69,8 +69,8 @@
 <middle>
     <section title="Introduction">
         <t>
-            This document defines a base <xref target="RFC8259">JSON</xref> structure for <xref target="RFC6480">RPKI</xref>, <xref target="RFC6811">Validated ROA Prefix</xref> (VRP) information.
-            Functionality to export VRPs in JSON format has emerged in several implementations of relaying party (RP) software, but was not previously standardized, resulting in loose coordination between implementers.
+            This document defines a base <xref target="RFC7493">I-JSON</xref> structure for <xref target="RFC6480">RPKI</xref>, <xref target="RFC6811">Validated ROA Prefix</xref> (VRP) information.
+            Functionality to export VRPs in I-JSON format has emerged in several implementations of relaying party (RP) software, but was not previously standardized, resulting in loose coordination between implementers.
             This specification establishes a simple and consistent interface for information export by RPs drawing from best practices observed in existing implementations.
         </t>
     </section>
@@ -106,9 +106,9 @@
     </section>
 
     <section title="LORRI Files and mechanisms">
-        <section title="Use of JSON">
+        <section title="Use of I-JSON">
             <t>
-                LORRI files are specified in <xref target="RFC8259">JSON</xref> format.
+                LORRI files are specified in <xref target="RFC7493">I-JSON</xref> format.
                 JSON members that are not defined here MUST NOT be used in LORRI files.
                 A LORRI file parser MUST consider any deviations from the specifications to be errors.
                 Future additions to the specifications in this document MUST use an incremented value for the "lorriVersion" member.
@@ -223,7 +223,7 @@
         <?rfc include="reference.RFC.6480"?>
         <?rfc include="reference.RFC.6811"?>
         <?rfc include="reference.RFC.8174"?>
-        <?rfc include="reference.RFC.8259"?>
+        <?rfc include="reference.RFC.7493"?>
     </references>
 <!--
         <references title="Informative References">
