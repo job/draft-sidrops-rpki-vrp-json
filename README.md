@@ -1,4 +1,4 @@
-Listing RPKI ROAs in JSON format (LORRI)
+Listing RPKI ROAs in I-JSON format (LORRI)
 ========================================
 
 Authoring Conventions
